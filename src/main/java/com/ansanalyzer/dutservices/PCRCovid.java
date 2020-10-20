@@ -1,13 +1,19 @@
 package com.ansanalyzer.dutservices;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class PCRCovid {
 
-	public static void CoverageCheck(List <String> sintoms, int age) {
+		private final List<String> criteriosMS = 
+				List.of("AAA","BBB","CCC","DDD");
+		private final List<String >criteriosMSPed = List.of("AAS","ABB");
 		
-		final List<String> teste=new ArrayList<>();
+		
+	
+	public void CoverageCheck(List <String> sintoms, int age) {
+		
+		//final List<String> criteriosMS=new ArrayList<>();
 		int score=0;
 		if (sintoms.isEmpty()) {
 			
@@ -18,12 +24,13 @@ public class PCRCovid {
 			
 			for (String sint : sintoms) {
 				
-				if (teste.contains(sint)) {
+				if (criteriosMS.contains(sint)) {
 					score+=1;
+				
 				}
 			}
 			if (score >=2) {
-				System.out.println("Exame autorizado. O segurado preenche"
+				System.out.println("O Exame deve ser autorizado. O segurado preenche"
 						+ "os critérios da Diretrizde Utilização da ANS");
 			}
 			else
@@ -34,7 +41,7 @@ public class PCRCovid {
 			
 			for (String sint : sintoms) {
 				
-				if (teste.contains(sint)) {
+				if (criteriosMS.contains(sint)) {
 					score+=1;
 				}
 			}
