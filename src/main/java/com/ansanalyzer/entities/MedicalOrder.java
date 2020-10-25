@@ -7,8 +7,13 @@ public class MedicalOrder {
 	private Long id;
 	private Patient patient;
 	File file;
-	private String result;
 	
+	public MedicalOrder(Long id, Patient patient, File file) {
+		
+		this.id = id;
+		this.patient = patient;
+		this.file = file;
+	}
 	
 	public Long getId() {
 		return id;
@@ -28,12 +33,7 @@ public class MedicalOrder {
 	public void setFile(File file) {
 		this.file = file;
 	}
-	public String getResult() {
-		return result;
-	}
-	public void setResult(String result) {
-		this.result = result;
-	}
 	
+		
 	
 }

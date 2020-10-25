@@ -5,9 +5,9 @@ public class Patient {
 	
 	private String nome;
 	private Integer idade;
-	private byte sexo;
+	private char sexo;
 	
-	public Patient(String nome, Integer idade, byte sexo) {
+	public Patient(String nome, Integer idade, char sexo) {
 		
 		this.nome = nome;
 		this.idade = idade;
@@ -30,10 +30,10 @@ public class Patient {
 	public void setIdade(Integer idade) {
 		this.idade = idade;
 	}
-	public byte getSexo() {
+	public char getSexo() {
 		return sexo;
 	}
-	public void setSexo(byte sexo) {
+	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
 	

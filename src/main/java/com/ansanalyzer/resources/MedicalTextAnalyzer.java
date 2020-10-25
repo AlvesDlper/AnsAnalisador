@@ -1,7 +1,9 @@
 package com.ansanalyzer.resources;
 
-import java.util.ArrayList;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.amazonaws.auth.AWSCredentialsProviderChain;
 import com.amazonaws.services.comprehendmedical.AWSComprehendMedical;
@@ -12,9 +14,9 @@ import com.amazonaws.services.comprehendmedical.model.Entity;
 
 public class MedicalTextAnalyzer {
 
-	public List<String> MConditionExtract(String text, AWSCredentialsProviderChain credentials) {
+	public Set<String> MConditionExtract(String text, AWSCredentialsProviderChain credentials) {
 
-		List<String> res = new ArrayList<>();
+		Set<String> res = new HashSet<>();
 		AWSComprehendMedical client = AWSComprehendMedicalClient.builder().withCredentials(credentials)
 				.withRegion("us-east-2").build();
 
@@ -23,6 +25,8 @@ public class MedicalTextAnalyzer {
 
 		DetectEntitiesV2Result result = client.detectEntitiesV2(request);
 		// result.getEntities().forEach(item-> System.out.println(item.toString()));
+		
+		
 		List<Entity> resultado = result.getEntities();
 
 		for (Entity entities : resultado) {
@@ -31,7 +35,8 @@ public class MedicalTextAnalyzer {
 			res.add(entities.getText());
 
 		}
-
+		
+		
 		return res;
 	}
 
